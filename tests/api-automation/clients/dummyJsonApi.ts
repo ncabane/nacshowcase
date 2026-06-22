@@ -71,12 +71,4 @@ export class DummyJsonApi {
   async deleteCart(id: number): Promise<APIResponse> {
     return this.request.delete(urls.api.carts.byId(id));
   }
-
-  async getCurrentUser(accessToken: string): Promise<APIResponse> {
-    return this.request.get(urls.api.auth.me, {
-      headers: {
-        Authorization: `Bearer ${accessToken}`,
-      },
-    });
-  }
 }

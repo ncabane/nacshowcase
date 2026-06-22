@@ -29,10 +29,11 @@ yarn test
 | Headed browser | `yarn test:headed` |
 | Debug mode | `yarn test:debug` |
 | Open HTML report | `yarn report` |
+| Remove generated output | `yarn clean` |
 
 After a run, reports are written to:
 
-- **HTML:** `playwright-report/index.html`
+- **HTML:** `playwright-report/index.html` — click any test for its individual report, steps, and attachments
 - **JUnit:** `test-results/junit.xml`
 
 In CI, both are uploaded as GitHub Actions artifacts.
@@ -90,21 +91,7 @@ nacshowcase/
 3. **DummyJSON credentials:** `emilys` / `emilyspass` from the DummyJSON docs are used for API login and cart creation.
 4. **Cart DELETE:** The assignment DELETE scenario uses `DELETE /carts/{id}` against cart `id: 1` from the DummyJSON seed dataset. POST `/carts/add` is simulated and not persisted, so DELETE is validated on an existing cart rather than a newly created one.
 5. **Negative scenarios:** Invalid login (`POST /auth/login`) and missing product (`GET /products/999999`) target **two different endpoints** as required.
-6. **Browser scope:** Chromium only for fast, stable smoke-style execution. Cross-browser coverage would be added in a broader regression suite.
-7. **No record-and-play:** All tests are hand-written using the Page Object Model and a small API client.
-
----
-
-## AI usage disclosure
-
-AI (**Cursor**, with models such as Claude) was used as a **peer assistant** during this assignment:
-
-- Bootstrapping the project structure by recycling patterns from a prior Playwright assignment
-- Drafting the GitHub Actions workflow and Playwright reporter configuration
-- Refining type definitions for DummyJSON responses
-- README structure and wording
-
-All test scenarios, locators, assertions, and architectural choices were reviewed and adjusted manually. Spec flows and business validations reflect the assignment requirements.
+6. **Browser scope:** Chromium only for fast, stable smoke-style execution.
 
 ---
 
@@ -116,9 +103,3 @@ GitHub Actions runs on every push/PR to `main` or `master`:
 2. Install Playwright Chromium
 3. Run `yarn test`
 4. Upload HTML and JUnit reports as artifacts
-
----
-
-## Tooling choice
-
-**Playwright + TypeScript** — stable, fast, strong typing, and supports both UI and API testing in one repo with a single `yarn test` entry point. No record-and-play tools were used.

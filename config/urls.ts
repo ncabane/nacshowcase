@@ -3,10 +3,8 @@ export const urls = {
     base: 'https://www.saucedemo.com',
   },
   api: {
-    base: 'https://dummyjson.com',
     auth: {
       login: 'https://dummyjson.com/auth/login',
-      me: 'https://dummyjson.com/auth/me',
     },
     products: (id: number) => `https://dummyjson.com/products/${id}`,
     carts: {
