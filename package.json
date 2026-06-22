@@ -1,8 +1,8 @@
 {
-  "name": "spritecloud-ta",
+  "name": "nacshowcase",
   "version": "1.0.0",
-  "description": "SpriteCloud Test Automation assignment — Sauce Demo UI + DummyJSON API",
-  "repository": "https://github.com/ncabane/spritecloud-ta.git",
+  "description": "Playwright test automation showcase — Sauce Demo UI + DummyJSON API",
+  "repository": "https://github.com/ncabane/nacshowcase.git",
   "author": "Nico <ncabane@gmail.com>",
   "license": "MIT",
   "devDependencies": {

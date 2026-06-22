@@ -1,4 +1,4 @@
-# SpriteCloud Test Automation Assignment
+# NAC Showcase — Test Automation
 
 Playwright + TypeScript solution for the SpriteCloud TA challenge: **UI tests** on [Sauce Demo](https://www.saucedemo.com) and **API tests** on [DummyJSON](https://dummyjson.com).
 
@@ -12,8 +12,8 @@ Playwright + TypeScript solution for the SpriteCloud TA challenge: **UI tests** 
 ### Install and run
 
 ```bash
-git clone https://github.com/ncabane/spritecloud-ta.git
-cd spritecloud-ta
+git clone https://github.com/ncabane/nacshowcase.git
+cd nacshowcase
 yarn install
 yarn playwright install
 yarn test
@@ -65,7 +65,7 @@ In CI, both are uploaded as GitHub Actions artifacts.
 ## Project structure
 
 ```
-spritecloud-ta/
+nacshowcase/
 ├── .github/workflows/ci.yml
 ├── config/urls.ts              # Base URLs and test credentials
 ├── playwright.config.ts
