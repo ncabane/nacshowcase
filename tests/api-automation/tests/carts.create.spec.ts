@@ -21,6 +21,7 @@ test('create cart with three products for authenticated user', async ({
   expect(cart.userId).toBe(authenticatedUser.id);
   expect(cart.products).toHaveLength(3);
   expect(cart.totalProducts).toBe(3);
+  // Quantities 1 + 2 + 1 = 4 items in total across all products.
   expect(cart.totalQuantity).toBe(4);
   expect(cart.total).toBeGreaterThan(0);
   expect(cart.products.every((product) => product.title && product.price > 0)).toBe(true);

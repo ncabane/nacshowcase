@@ -1,6 +1,7 @@
 import type { APIRequestContext, APIResponse } from '@playwright/test';
 import { credentials, urls } from '../../../config/urls';
 
+// Typed shapes for DummyJSON responses keep assertions explicit and reviewer-friendly.
 export type LoginResponse = {
   id: number;
   username: string;
@@ -46,6 +47,7 @@ export type CartAddRequest = {
   products: Array<{ id: number; quantity: number }>;
 };
 
+// Thin API client: one method per endpoint so specs read like business actions.
 export class DummyJsonApi {
   constructor(private readonly request: APIRequestContext) {}
 

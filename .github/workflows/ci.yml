@@ -1,3 +1,5 @@
+# Runs the full Playwright suite on every push/PR.
+# Reports are uploaded even when tests fail so reviewers can inspect artifacts.
 name: Playwright Tests
 
 on:

@@ -1,6 +1,7 @@
 import { expect, Locator, Page } from '@playwright/test';
 import { credentials, urls } from '../../../config/urls';
 
+// Page Object Model: locators and page actions live here, not in the spec files.
 export class LoginPage {
   readonly usernameInput: Locator;
   readonly passwordInput: Locator;
@@ -11,6 +12,7 @@ export class LoginPage {
     this.usernameInput = page.locator('#user-name');
     this.passwordInput = page.locator('#password');
     this.loginButton = page.locator('#login-button');
+    // Sauce Demo exposes a stable data-test attribute for login errors.
     this.errorMessage = page.locator('[data-test="error"]');
   }
 
@@ -32,6 +34,7 @@ export class LoginPage {
   async expectLoginError(message: RegExp | string) {
     await expect(this.errorMessage).toBeVisible();
     await expect(this.errorMessage).toContainText(message);
+    // Failed login should keep the user on the login page.
     await expect(this.page).toHaveURL(urls.ui.base);
   }
 }

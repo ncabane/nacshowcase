@@ -4,11 +4,14 @@ import { InventoryPage } from './page-objects/inventoryPage';
 import { CartPage } from './page-objects/cartPage';
 import { CheckoutPage } from './page-objects/checkoutPage';
 
+// Fixtures inject ready-to-use page objects into each UI test.
+// Tests stay readable because setup lives here instead of being repeated in every spec.
 type UIFixtures = {
   login: LoginPage;
   inventory: InventoryPage;
   cart: CartPage;
   checkout: CheckoutPage;
+  // Composite fixture: logs in once and hands the test an inventory page already loaded.
   authenticatedInventory: InventoryPage;
 };
 

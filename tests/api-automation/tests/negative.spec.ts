@@ -1,6 +1,7 @@
 import { test, expect } from '../fixtures';
 import { credentials } from '../../../config/urls';
 
+// Two negative cases on different endpoints, as required by the assignment.
 test.describe('negative API scenarios', () => {
   test('login with invalid password returns 400', async ({ dummyJson }) => {
     const response = await dummyJson.login(

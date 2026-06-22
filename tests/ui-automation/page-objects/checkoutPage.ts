@@ -49,6 +49,7 @@ export class CheckoutPage {
     const total = await this.getSummaryAmount(this.totalLabel);
 
     expect(itemTotal).toBeCloseTo(itemSubtotal, 2);
+    // Sauce Demo applies a flat 8% tax on the item subtotal.
     expect(tax).toBeCloseTo(itemSubtotal * 0.08, 2);
     expect(total).toBeCloseTo(itemSubtotal + itemSubtotal * 0.08, 2);
   }

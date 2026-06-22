@@ -21,6 +21,7 @@ export class InventoryPage {
   }
 
   async sortByNameDescending() {
+    // Sauce Demo uses option value "za" for Name (Z to A).
     await this.sortDropdown.selectOption('za');
   }
 
@@ -54,6 +55,7 @@ export function parsePrice(priceText: string): number {
   return Number.parseFloat(priceText.replace('$', '').trim());
 }
 
+// Compares the visible list against a locale-aware descending sort.
 export function isSortedDescending(values: string[]): boolean {
   const sorted = [...values].sort((a, b) => b.localeCompare(a));
   return values.every((value, index) => value === sorted[index]);

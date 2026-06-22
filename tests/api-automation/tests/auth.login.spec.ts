@@ -9,6 +9,7 @@ test('successful login returns user profile and tokens', async ({ dummyJson }) =
   expect(body.id).toBeGreaterThan(0);
   expect(body.username).toBe('emilys');
   expect(body.email).toContain('@');
+  // Tokens prove the auth endpoint returns a usable session payload.
   expect(body.accessToken).toBeTruthy();
   expect(body.refreshToken).toBeTruthy();
 });
