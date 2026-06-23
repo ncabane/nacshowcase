@@ -1,6 +1,6 @@
 import { expect, Locator, Page } from '@playwright/test';
 
-// Represents the cart review step between inventory and checkout.
+// CartPage represents the cart review step between inventory and checkout
 export class CartPage {
   readonly cartItems: Locator;
   readonly checkoutButton: Locator;
@@ -14,10 +14,12 @@ export class CartPage {
     await expect(this.page).toHaveURL(/cart\.html/);
   }
 
+  // Proceed to checkout.
   async proceedToCheckout() {
     await this.checkoutButton.click();
   }
 
+  // Expect item count.
   async expectItemCount(count: number) {
     await expect(this.cartItems).toHaveCount(count);
   }

@@ -1,6 +1,7 @@
 import { test, expect } from '../fixtures';
 import type { LoginResponse } from '../clients/dummyJsonApi';
 
+// Successful login returns user profile and tokens. This is a happy path test
 test('successful login returns user profile and tokens', async ({ dummyJson }) => {
   const response = await dummyJson.login();
   expect(response.ok()).toBeTruthy();
@@ -9,7 +10,6 @@ test('successful login returns user profile and tokens', async ({ dummyJson }) =
   expect(body.id).toBeGreaterThan(0);
   expect(body.username).toBe('emilys');
   expect(body.email).toContain('@');
-  // Tokens prove the auth endpoint returns a usable session payload.
   expect(body.accessToken).toBeTruthy();
   expect(body.refreshToken).toBeTruthy();
 });
