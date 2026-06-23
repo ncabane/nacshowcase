@@ -1,5 +1,6 @@
-// Single source of truth for environment URLs and test credentials.
-// Public demo credentials only — safe to commit because both apps expose them in docs.
+// Source for environment URLs and test credentials. Public demo credentials only
+// They are exposed here as they are exposed in the website
+
 export const urls = {
   ui: {
     base: 'https://www.saucedemo.com',

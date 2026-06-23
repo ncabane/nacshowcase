@@ -1,6 +1,7 @@
 import { test, expect } from '../fixtures';
 import type { CartResponse } from '../clients/dummyJsonApi';
 
+// Create cart with three products for authenticated user. This is a happy path test
 test('create cart with three products for authenticated user', async ({
   dummyJson,
   authenticatedUser,

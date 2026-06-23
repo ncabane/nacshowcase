@@ -13,7 +13,8 @@ export default defineConfig({
   fullyParallel: true,
   forbidOnly: !!process.env.CI,
   retries: process.env.CI ? 1 : 0,
-  workers: process.env.CI ? 2 : undefined,
+  // Using one worker to make debug and review easier
+  workers: process.env.CI ? 1 : 1,
 
   // list  -> live terminal output while tests run
   // html  -> interactive report with per-test steps and failure attachments
