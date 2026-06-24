@@ -4,34 +4,22 @@ import { InventoryPage } from './page-objects/inventoryPage';
 import { CartPage } from './page-objects/cartPage';
 import { CheckoutPage } from './page-objects/checkoutPage';
 
-// UI fixtures inject ready-to-use page objects into each UI test
-// Tests stay readable because setup lives here instead of being repeated in every spec
 type UIFixtures = {
   login: LoginPage;
-  inventory: InventoryPage;
   cart: CartPage;
   checkout: CheckoutPage;
-  // Composite fixture: logs in once and hands the test an inventory page already loaded
   authenticatedInventory: InventoryPage;
 };
 
 export const test = base.extend<UIFixtures>({
-  login: async ({ page }, use) => {
-    await use(new LoginPage(page));
-  },
+  login: async ({ page }, use) => use(new LoginPage(page)),
+  cart: async ({ page }, use) => use(new CartPage(page)),
+  checkout: async ({ page }, use) => use(new CheckoutPage(page)),
 
-  inventory: async ({ page }, use) => {
-    await use(new InventoryPage(page)); 
-  },
+  authenticatedInventory: async ({ page }, use) => {
+    const login = new LoginPage(page);
+    const inventory = new InventoryPage(page);
 
-  // Cart page
-  cart: async ({ page }, use) => await use(new CartPage(page)),
-
-  // Checkout page
-  checkout: async ({ page }, use) => await use(new CheckoutPage(page)),
-
-  // Composite fixture: logs in once and hands the test an inventory page already loaded
-  authenticatedInventory: async ({ login, inventory }, use) => {
     await login.goto();
     await login.loginWithValidUser();
     await inventory.expectLoaded();

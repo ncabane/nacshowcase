@@ -68,7 +68,7 @@ In CI, both are uploaded as GitHub Actions artifacts.
 ```
 nacshowcase/
 ├── .github/workflows/ci.yml
-├── config/urls.ts              # Base URLs and test credentials
+├── config/testData.ts          # URLs, credentials, and test input data
 ├── playwright.config.ts
 ├── tests/
 │   ├── ui-automation/

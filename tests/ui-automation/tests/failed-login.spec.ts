@@ -1,5 +1,5 @@
 import { test } from '../fixtures';
-import { credentials } from '../../../config/urls';
+import { credentials } from '../../../config/testData';
 
 // Negative UI scenario: invalid credentials should show an error and block access. 
 // This is a negative test.  
