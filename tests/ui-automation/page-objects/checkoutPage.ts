@@ -38,6 +38,7 @@ export class CheckoutPage {
     await this.finishButton.click();
   }
 
+  // AI-generated solution:
   // Get summary amount by parsing the amount from the summary label
   async getSummaryAmount(label: Locator): Promise<number> {
     const text = (await label.textContent()) ?? '';
@@ -48,6 +49,7 @@ export class CheckoutPage {
     return Number.parseFloat(match[1]);
   }
 
+  // AI-generated solution:
   // Expect totals match expected by checking the item total, tax and total
   async expectTotalsMatchExpected(itemSubtotal: number) {
     const itemTotal = await this.getSummaryAmount(this.itemTotalLabel);
@@ -55,11 +57,12 @@ export class CheckoutPage {
     const total = await this.getSummaryAmount(this.totalLabel);
 
     expect(itemTotal).toBeCloseTo(itemSubtotal, 2);
-    // Sauce Demo applies a flat 8% tax on the item subtotal.
+    // Sauce Demo applies a flat 8% tax on the item subtotal
     expect(tax).toBeCloseTo(itemSubtotal * 0.08, 2);
     expect(total).toBeCloseTo(itemSubtotal + itemSubtotal * 0.08, 2);
   }
 
+  // AI-generated solution:
   // Expect order complete by checking the complete header
   async expectOrderComplete() {
     await expect(this.completeHeader).toHaveText('Thank you for your order!');
