@@ -7,6 +7,8 @@ test('sort items by name Z-A and validate order', async ({ authenticatedInventor
 
   // Get item names
   const itemNames = await authenticatedInventory.getItemNames();
+  
+  // AI-generated solution:
   // Get expected order by sorting the item names by name Z-A
   const expectedOrder = [...itemNames].sort((a, b) => b.localeCompare(a));
 

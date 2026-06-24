@@ -11,13 +11,13 @@ test.describe('negative API scenarios', () => {
       credentials.dummyJson.invalid.password,
     );
 
-    // Expect HTTP response to be unsuccessful
+    // Expect HTTP status code to be 400
     expect(response.status()).toBe(400);
 
-    // Parse response body as login payload
+    // Parse error response body
     const body = await response.json();
 
-    // Expect error message to mention invalid credentials by checking the message
+    // Expect error message to mention invalid credentials
     expect(body.message).toMatch(/Invalid credentials/i);
   });
 

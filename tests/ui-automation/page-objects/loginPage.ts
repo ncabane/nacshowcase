@@ -20,19 +20,20 @@ export class LoginPage {
     await this.page.goto(urls.ui.base);
   }
 
-  // Login with valid user by filling the username and password and clicking the login button
+  // Fill credentials and submit the login form
   async login(username: string, password: string) {
     await this.usernameInput.fill(username);
     await this.passwordInput.fill(password);
     await this.loginButton.click();
   }
 
-  // Login with valid user
+  // Login using valid credentials from test data
   async loginWithValidUser() {
     const { username, password } = credentials.sauceDemo.valid;
     await this.login(username, password);
   }
-
+  
+  // AI-generated solution:
   // Expect login error by checking the error message and the URL
   async expectLoginError(message: RegExp | string) {
     await expect(this.errorMessage).toBeVisible();

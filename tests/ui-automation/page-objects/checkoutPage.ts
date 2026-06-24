@@ -39,7 +39,7 @@ export class CheckoutPage {
   }
 
   // AI-generated solution:
-  // Get summary amount by parsing the amount from the summary label
+  // Parse dollar amount from a checkout summary label
   async getSummaryAmount(label: Locator): Promise<number> {
     const text = (await label.textContent()) ?? '';
     const match = text.match(/\$([0-9]+(?:\.[0-9]{2})?)/);
@@ -50,7 +50,7 @@ export class CheckoutPage {
   }
 
   // AI-generated solution:
-  // Expect totals match expected by checking the item total, tax and total
+  // Validate item total, tax (8%), and final total against expected subtotal
   async expectTotalsMatchExpected(itemSubtotal: number) {
     const itemTotal = await this.getSummaryAmount(this.itemTotalLabel);
     const tax = await this.getSummaryAmount(this.taxLabel);
@@ -63,7 +63,7 @@ export class CheckoutPage {
   }
 
   // AI-generated solution:
-  // Expect order complete by checking the complete header
+  // Confirm the order completion message is shown
   async expectOrderComplete() {
     await expect(this.completeHeader).toHaveText('Thank you for your order!');
   }

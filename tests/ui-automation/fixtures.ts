@@ -4,6 +4,7 @@ import { InventoryPage } from './page-objects/inventoryPage';
 import { CartPage } from './page-objects/cartPage';
 import { CheckoutPage } from './page-objects/checkoutPage';
 
+// AI did the heavy lifting of the fixtures
 type UIFixtures = {
   login: LoginPage;
   cart: CartPage;
