@@ -1,5 +1,5 @@
 import { test, expect } from '../fixtures';
-import { credentials } from '../../../config/urls';
+import { credentials, api } from '../../../config/testData';
 
 // Two negative cases on different endpoints, as required by the assignment
 test.describe('negative API scenarios', () => {
@@ -19,7 +19,7 @@ test.describe('negative API scenarios', () => {
 
   // Case 2: Non-existent product should return a 404 status code
   test('get non-existent product returns 404', async ({ dummyJson }) => {
-    const response = await dummyJson.getProduct(999_999);
+    const response = await dummyJson.getProduct(api.invalidProductId);
     expect(response.status()).toBe(404);
 
     const body = await response.json();

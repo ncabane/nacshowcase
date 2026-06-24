@@ -1,5 +1,5 @@
 import { expect, Locator, Page } from '@playwright/test';
-import { credentials, urls } from '../../../config/urls';
+import { credentials, urls } from '../../../config/testData';
 
 // LoginPage represents the login page and its actions
 export class LoginPage {
@@ -15,11 +15,12 @@ export class LoginPage {
     this.errorMessage = page.locator('[data-test="error"]');
   }
 
+  // Go to the login page
   async goto() {
     await this.page.goto(urls.ui.base);
   }
 
-  // Login with valid user
+  // Login with valid user by filling the username and password and clicking the login button
   async login(username: string, password: string) {
     await this.usernameInput.fill(username);
     await this.passwordInput.fill(password);
@@ -32,7 +33,7 @@ export class LoginPage {
     await this.login(username, password);
   }
 
-  // Expect login error
+  // Expect login error by checking the error message and the URL
   async expectLoginError(message: RegExp | string) {
     await expect(this.errorMessage).toBeVisible();
     await expect(this.errorMessage).toContainText(message);
