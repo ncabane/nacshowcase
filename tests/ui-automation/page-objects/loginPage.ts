@@ -15,7 +15,7 @@ export class LoginPage {
     this.errorMessage = page.locator('[data-test="error"]');
   }
 
-  // Go to the login page
+  // Go to the login page by going to the base URL
   async goto() {
     await this.page.goto(urls.ui.base);
   }
