@@ -14,6 +14,7 @@ export class InventoryPage {
     this.cartLink = page.locator('.shopping_cart_link');
   }
 
+  // AI-generated solution:
   // Expects to see the inventory page by checking the URL and the first item being visible
   async expectLoaded() {
     await expect(this.page).toHaveURL(/inventory\.html/);
@@ -37,7 +38,7 @@ export class InventoryPage {
   }
 
   // AI-generated solution:
-  // Get item price by index by getting the text content of the item price
+  // Read and parse the price for an inventory item by index
   async getItemPriceByIndex(index: number): Promise<number> {
     const priceText = await this.inventoryItems
       .nth(index)

@@ -6,6 +6,7 @@ test('full checkout with two items validates final price', async ({
   cart,
   checkout,
 }) => {
+  // Read item prices from the UI to build expected subtotal
   const firstItemPrice = await authenticatedInventory.getItemPriceByIndex(0);
   const secondItemPrice = await authenticatedInventory.getItemPriceByIndex(1);
   const expectedSubtotal = firstItemPrice + secondItemPrice;
@@ -22,7 +23,7 @@ test('full checkout with two items validates final price', async ({
   await cart.expectItemCount(2);
   await cart.proceedToCheckout();
 
-  // Fill customer info by filling the first name, last name and postal code and clicking the continue button 
+  // Fill customer info and continue to checkout summary
   await checkout.fillCustomerInfo(ui.checkout);
 
   // Expect totals match expected by checking the item total, tax and total

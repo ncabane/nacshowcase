@@ -94,7 +94,7 @@ nacshowcase/
 
 1. Heavy AI use is acceptable (Cursor + Composer 2.5 Fast model was mainly used)
 2. Recycling and reusing previous code is acceptable
-3. Extra usage of comments for clarity and for scalability and to avoid "gate keeping"
+3. Extra usage of comments for clarity, scalability, and to avoid gatekeeping
 4. **Sauce Demo credentials:** `standard_user` / `secret_sauce` are used for happy-path UI flows (public demo credentials).
 5. **Sauce Demo tax:** Tax is calculated as **8%** of the item subtotal, matching the checkout summary behaviour on the demo site.
 6. **DummyJSON credentials:** `emilys` / `emilyspass` from the DummyJSON docs are used for API login and cart creation.
